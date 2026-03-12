@@ -1,0 +1,458 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-yellow: #FFE135;
+    --secondary-yellow: #FFD700;
+    --dark-yellow: #F4C430;
+    --brown: #8B4513;
+    --green: #4CAF50;
+    --cream: #FFFDD0;
+    --text-dark: #2C2C2C;
+    --text-light: #666666;
+    --white: #FFFFFF;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #FFF9E6 0%, #FFF5CC 100%);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 英雄区域 */
+.hero {
+    position: relative;
+    height: 80vh;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 3rem 4rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    font-weight: 300;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+/* 导航栏 */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.navbar a:hover {
+    background: var(--primary-yellow);
+    color: var(--brown);
+    transform: translateY(-2px);
+}
+
+/* 主容器 */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* 瀑布流布局 */
+.masonry-grid {
+    column-count: 4;
+    column-gap: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+    .masonry-grid {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 900px) {
+    .masonry-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .masonry-grid {
+        column-count: 1;
+    }
+}
+
+/* 卡片样式 */
+.card {
+    break-inside: avoid;
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    color: var(--brown);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    color: var(--dark-yellow);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.card p {
+    color: var(--text-light);
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.card ul {
+    margin-left: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.card li {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* 卡片尺寸变体 */
+.card-large {
+    break-inside: avoid;
+}
+
+.card-medium {
+    break-inside: avoid;
+}
+
+/* 营养列表 */
+.nutrition-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.nutrition-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+}
+
+.nutrition-list li:last-child {
+    border-bottom: none;
+}
+
+/* 营养表格 */
+.nutrition-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.nutrition-table tr {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.nutrition-table tr:last-child {
+    border-bottom: none;
+}
+
+.nutrition-table td {
+    padding: 0.6rem 0;
+}
+
+.nutrition-table td:first-child {
+    color: var(--text-light);
+}
+
+.nutrition-table td:last-child {
+    color: var(--brown);
+    font-weight: 600;
+    text-align: right;
+}
+
+/* 健康益处网格 */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.benefit-item {
+    background: linear-gradient(135deg, #FFF9E6 0%, #FFF5CC 100%);
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.benefit-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.benefit-item strong {
+    display: block;
+    color: var(--brown);
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+.benefit-item p {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+}
+
+/* 品种标签 */
+.variety-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--secondary-yellow) 100%);
+    color: var(--brown);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+/* 小贴士框 */
+.tip-box {
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+    padding: 1rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--green);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.tip-box strong {
+    color: var(--green);
+}
+
+/* 迷你食谱 */
+.recipe-mini {
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+    padding: 0.8rem;
+    border-radius: 10px;
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--brown);
+}
+
+/* 有趣事实卡片 */
+.fact-card {
+    background: linear-gradient(135deg, #FFF9E6 0%, #FFF5CC 100%);
+    border: 2px solid var(--primary-yellow);
+}
+
+.fact-card h3 {
+    color: var(--brown);
+}
+
+/* 统计列表 */
+.stats-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.stats-list li {
+    padding: 0.7rem 0;
+    border-bottom: 1px dashed #ddd;
+    font-size: 0.95rem;
+}
+
+.stats-list li:last-child {
+    border-bottom: none;
+}
+
+.stats-list strong {
+    color: var(--dark-yellow);
+}
+
+/* 页脚 */
+.footer {
+    background: linear-gradient(135deg, var(--brown) 0%, #6B3410 100%);
+    color: var(--white);
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.footer-content p:first-child {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.footer-note {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* 动画 */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .hero-content {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+    
+    .navbar ul {
+        gap: 1rem;
+    }
+    
+    .navbar a {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 加载动画 */
+.card {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+.card:nth-child(7) { animation-delay: 0.7s; }
+.card:nth-child(8) { animation-delay: 0.8s; }
+.card:nth-child(9) { animation-delay: 0.9s; }
+.card:nth-child(10) { animation-delay: 1.0s; }
